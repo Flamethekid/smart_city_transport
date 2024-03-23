@@ -9,13 +9,30 @@ void main() {
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
-  @override
 
+  @override
   Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Center(child: Text('Test UI'),),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: const Center(child: Text('Test')),
+        ),
+        bottomNavigationBar: BottomNavigationBar(items:
+          const[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.map),
+                label: 'Map'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'user'
+            )
+          ]),
       ),
     );
   }
