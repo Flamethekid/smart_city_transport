@@ -31,6 +31,7 @@ class MyHomePage extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: 'user'
+
             )
           ]),
       ),
