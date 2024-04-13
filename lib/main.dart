@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 //Todo
 /*
-1:allow the textfield to take an input
-2:create onenter function for hiding textfield
-3:find API for the map functionalities
+1:allow the textfield to take an input - half done
+2:create onenter function for hiding textfield - done
+3:find API for the map functionalities - done
 4:create the logic for the map function to take the input in text box
 5:allow api to show routes for carpool, bus and bike
 6:(optional) allow textfield to auto complete entered location
