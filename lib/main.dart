@@ -47,8 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Stack(children: [
                   //Google map stuff goes here
                   const SizedBox(
-                    height: 700,
-                    width: double.infinity,
+                    height: 500,
                     child: GoogleMap(
                         initialCameraPosition:
                             CameraPosition(target: googleplex, zoom: 13)),
