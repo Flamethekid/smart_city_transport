@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 //Todo
 /*
@@ -27,6 +28,9 @@ class MyHomePage extends StatefulWidget {
 bool isRowvisible = true;
 
 class _MyHomePageState extends State<MyHomePage> {
+  static const googleplex = LatLng(7.3494412065570565, -2.3430129529877455);
+  late GoogleMapController mapController;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,6 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Stack(children: [
                   //Google map stuff goes here
+                  const SizedBox(
+                    height: 700,
+                    width: double.infinity,
+                    child: GoogleMap(
+                        initialCameraPosition:
+                            CameraPosition(target: googleplex, zoom: 13)),
+                  ),
 
                   //this Row is to be hidden when map opens
                   Visibility(
