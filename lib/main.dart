@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               SizedBox(
                 child: SearchMapPlaceWidget(
-                  apiKey: "Enter key here",
+                  apiKey: "AIzaSyCAsma6K8826Qsj4iX9sRFc3y2_xHJhSuo",
                   bgColor: Colors.white,
                   location:
                       const LatLng(7.3494412065570565, -2.3430129529877455),
