@@ -17,6 +17,7 @@ void main() {
   runApp(const MaterialApp(
     title: 'Smart City',
     home: MyHomePage(),
+    debugShowCheckedModeBanner: false,
   ));
 }
 
@@ -37,9 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //final locationController = Location();
   final textController = TextEditingController();
   static const _googleplex = LatLng(7.3494412065570565, -2.3430129529877455);
-  static const _googleplex2debug =
-      LatLng(7.345355161899005, -2.343281173854657);
-  var _defaultMarker = const LatLng(7.3494412065570565, -2.3430129529877455);
+  var _googleplex2debug = const LatLng(7.3494412065570565, -2.3430129529877455);
 
   //LatLng? currentPosition;
 
@@ -74,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: const Center(child: Text('Test')),
+          title: const Center(child: Text('Smart City')),
         ),
         body: SingleChildScrollView(
           child: Stack(
@@ -94,8 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         markerId: MarkerId('currentLocation'),
                         icon: BitmapDescriptor.defaultMarker,
                         position: _googleplex),
-                    const Marker(
-                        markerId: MarkerId('secondLocation'),
+                    Marker(
+                        markerId: const MarkerId('secondLocation'),
                         icon: BitmapDescriptor.defaultMarker,
                         position: _googleplex2debug)
                   },
@@ -105,15 +104,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
               SizedBox(
                 child: SearchMapPlaceWidget(
-                  apiKey: "AIzaSyCAsma6K8826Qsj4iX9sRFc3y2_xHJhSuo",
+                  apiKey: "Enter key here",
                   bgColor: Colors.white,
                   location:
                       const LatLng(7.3494412065570565, -2.3430129529877455),
-                  radius: 2000,
+                  radius: 4000,
                   textColor: Colors.black,
                   strictBounds: true,
-                  onSelected: (place) {
-                    _defaultMarker = place.fullJSON['geometry']['location'];
+                  onSelected: (Place place) async {
+                    final selectedPlace = await place.geolocation;
+
+                    setState(() {
+                      _googleplex2debug = selectedPlace?.coordinates;
+                      initializeMap();
+                    });
+
+                    //var geometry = selectedPlace.;
+                    //print(geometry);
+                    //var location = geometry['location'];
+                    //double lat = location['lat'] as double;
+                    //double lng = location['lng'] as double;
+                    //_googleplex2debug = LatLng(lat, lng);
                   },
                 ),
               ),
